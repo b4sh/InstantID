@@ -173,7 +173,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8"):
         out_img_pil = Image.fromarray(out_img.astype(np.uint8))
         return out_img_pil
 
-    def resize_img(input_image, max_side=1280, min_side=1024, size=None, 
+    def resize_img(input_image, max_side=1024, min_side=1024, size=None, 
                 pad_to_max_side=False, mode=PIL.Image.BILINEAR, base_pixel_number=64):
 
             w, h = input_image.size
@@ -351,14 +351,14 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8"):
                     minimum=0,
                     maximum=1.5,
                     step=0.05,
-                    value=0.80,
+                    value=0.70,
                 )
                 adapter_strength_ratio = gr.Slider(
                     label="Image adapter strength (for detail)",
                     minimum=0,
                     maximum=1.5,
                     step=0.05,
-                    value=0.80,
+                    value=0.60,
                 )
                 
                 with gr.Accordion(open=False, label="Advanced Options"):
@@ -372,7 +372,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8"):
                         minimum=20,
                         maximum=100,
                         step=1,
-                        value=30,
+                        value=22,
                     )
                     guidance_scale = gr.Slider(
                         label="Guidance scale",
