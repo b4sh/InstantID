@@ -2,6 +2,7 @@ diffusers==0.25.0
 torch==2.0.0
 torchvision==0.15.1
 transformers==4.30.1
+xformers
 accelerate
 safetensors
 einops
