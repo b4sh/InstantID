@@ -35,7 +35,7 @@ STYLE_NAMES = list(styles.keys())
 DEFAULT_STYLE_NAME = "Watercolor"
 
 # Load face encoder
-app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
+app = FaceAnalysis(name='antelopev2', root='./', providers=['CPUExecutionProvider'])
 app.prepare(ctx_id=0, det_size=(640, 640))
 
 # Path to InstantID models
@@ -247,6 +247,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8"):
         print(f"[Debug] Prompt: {prompt}, \n[Debug] Neg Prompt: {negative_prompt}")
         
         pipe.set_ip_adapter_scale(adapter_strength_ratio)
+        pipe.enable_xformers_memory_efficient_attention()
         images = pipe(
             prompt=prompt,
             negative_prompt=negative_prompt,
