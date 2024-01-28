@@ -263,6 +263,9 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8"):
 
         return images, gr.update(visible=True)
 
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
     ### Description
     title = r"""
     <h1 align="center">InstantID: Zero-shot Identity-Preserving Generation in Seconds</h1>
