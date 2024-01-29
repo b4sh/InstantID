@@ -428,7 +428,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8"):
         
         gr.Markdown(article)
 
-    demo.launch()
+    demo.launch(share=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
